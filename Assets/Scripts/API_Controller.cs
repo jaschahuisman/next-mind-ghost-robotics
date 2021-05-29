@@ -15,16 +15,79 @@ public class API_Controller : MonoBehaviour
 
     }
 
-    void Sit()
+    IEnumerator Sit()
     {
-        string uri = URI + "/sit";
-        using (UnityWebRequest request = UnityWebRequest.Get(uri))
+        using (UnityWebRequest request = UnityWebRequest.Get(URI + PORT + "/sit"))
         {
             yield return request.SendWebRequest();
-            if (request.isNetworkError || request.isHttpError)
-            {
-                Debug.log("Network/http error: " + request);
-            }
+
+            // if (request.isNetworkError)
+            // {
+            //     // Error
+            //     Debug.Log(request.error);
+            // }
+            // else
+            // {
+            //     // Success
+            //     Debug.Log(request.downloadHandler.text);
+            // }
+        }
+    }
+   
+    IEnumerator Stand()
+    {
+        using (UnityWebRequest request = UnityWebRequest.Get(URI + PORT + "/stand"))
+        {
+            yield return request.SendWebRequest();
+
+            // if (request.isNetworkError)
+            // {
+            //     // Error
+            //     Debug.Log(request.error);
+            // }
+            // else
+            // {
+            //     // Success
+            //     Debug.Log(request.downloadHandler.text);
+            // }
+        }
+    }
+    
+    IEnumerator Walk()
+    {
+        using (UnityWebRequest request = UnityWebRequest.Post(URI + PORT + "/walk", ""))
+        {
+            yield return request.SendWebRequest();
+
+            // if (request.isNetworkError)
+            // {
+            //     // Error
+            //     Debug.Log(request.error);
+            // }
+            // else
+            // {
+            //     // Success
+            //     Debug.Log(request.downloadHandler.text);
+            // }
+        }
+    }
+    
+    IEnumerator WalkForward()
+    {
+        using (UnityWebRequest request = UnityWebRequest.Post(URI + PORT + "/walkForward", ""))
+        {
+            yield return request.SendWebRequest();
+
+            // if (request.isNetworkError)
+            // {
+            //     // Error
+            //     Debug.Log(request.error);
+            // }
+            // else
+            // {
+            //     // Success
+            //     Debug.Log(request.downloadHandler.text);
+            // }
         }
     }
 }
