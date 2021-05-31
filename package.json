@@ -1,0 +1,23 @@
+{
+  "name": "next-mind-ghost-robotics",
+  "version": "1.0.0",
+  "description": "Next-mind brain computer interface for the [ghost robotics vision 60](https://www.ghostrobotics.io/) robot dog.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./Server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaschahuisman/next-mind-ghost-robotics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaschahuisman/next-mind-ghost-robotics/issues"
+  },
+  "homepage": "https://github.com/jaschahuisman/next-mind-ghost-robotics#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
