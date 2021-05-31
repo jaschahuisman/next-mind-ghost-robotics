@@ -1,93 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 
 public class API_Controller : MonoBehaviour
 {
-    public string URI = "http://192.168.168.101";
+    public string IP = "http://127.0.0.1";
     public int PORT = 1234;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Trigger(string route)
     {
-
-    }
-
-    IEnumerator Sit()
-    {
-        using (UnityWebRequest request = UnityWebRequest.Get(URI + PORT + "/sit"))
+        switch (route)
         {
-            yield return request.SendWebRequest();
-
-            // if (request.isNetworkError)
-            // {
-            //     // Error
-            //     Debug.Log(request.error);
-            // }
-            // else
-            // {
-            //     // Success
-            //     Debug.Log(request.downloadHandler.text);
-            // }
+            case "sit":
+                StartCoroutine(Sit());
+                break;
+            case "stand":
+                StartCoroutine(Stand());
+                break;
+            case "walk":
+                StartCoroutine(Walk());
+                break;
+            case "walkForward":
+                StartCoroutine(WalkForward());
+                break;
+            default:
+                StartCoroutine(Test());
+                break;
         }
     }
-   
-    IEnumerator Stand()
+
+    public IEnumerator Test()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(URI + PORT + "/stand"))
+        using (UnityWebRequest request = UnityWebRequest.Get(IP + ":" + PORT))
         {
             yield return request.SendWebRequest();
-
-            // if (request.isNetworkError)
-            // {
-            //     // Error
-            //     Debug.Log(request.error);
-            // }
-            // else
-            // {
-            //     // Success
-            //     Debug.Log(request.downloadHandler.text);
-            // }
+            if (request.isNetworkError) { Debug.Log(request.error); }
         }
     }
-    
-    IEnumerator Walk()
+
+    public IEnumerator Sit()
     {
-        using (UnityWebRequest request = UnityWebRequest.Post(URI + PORT + "/walk", ""))
+        using (UnityWebRequest request = UnityWebRequest.Get(IP + ":" + PORT + "/sit"))
         {
             yield return request.SendWebRequest();
-
-            // if (request.isNetworkError)
-            // {
-            //     // Error
-            //     Debug.Log(request.error);
-            // }
-            // else
-            // {
-            //     // Success
-            //     Debug.Log(request.downloadHandler.text);
-            // }
+            if (request.isNetworkError) { Debug.Log(request.error); }
         }
     }
-    
-    IEnumerator WalkForward()
+
+    public IEnumerator Stand()
     {
-        using (UnityWebRequest request = UnityWebRequest.Post(URI + PORT + "/walkForward", ""))
+        using (UnityWebRequest request = UnityWebRequest.Get(IP + ":" + PORT + "/stand"))
         {
             yield return request.SendWebRequest();
+            if (request.isNetworkError) { Debug.Log(request.error); }
+        }
+    }
 
-            // if (request.isNetworkError)
-            // {
-            //     // Error
-            //     Debug.Log(request.error);
-            // }
-            // else
-            // {
-            //     // Success
-            //     Debug.Log(request.downloadHandler.text);
-            // }
+    public IEnumerator Walk()
+    {
+        using (UnityWebRequest request = UnityWebRequest.Post(IP + ":" + PORT + "/walk", ""))
+        {
+            yield return request.SendWebRequest();
+            if (request.isNetworkError) { Debug.Log(request.error); }
+        }
+    }
+
+    public IEnumerator WalkForward()
+    {
+        using (UnityWebRequest request = UnityWebRequest.Post(IP + ":" + PORT + "/walkForward", ""))
+        {
+            yield return request.SendWebRequest();
+            if (request.isNetworkError) { Debug.Log(request.error); }
         }
     }
 }

@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 149687984}
   - component: {fileID: 149687983}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: NeuroCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 273378671}
   - component: {fileID: 273378670}
   m_Layer: 0
-  m_Name: API
+  m_Name: ApiController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224a6e1ec35484012bafb12c2d0ebcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  URI: http://192.168.168.101
+  IP: http://127.0.0.1
   PORT: 1234
 --- !u!4 &273378671
 Transform:
@@ -494,8 +494,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273378669}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.460362, y: 4.391494, z: 184.91049}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.460361, y: 4.391494, z: 184.91049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 396375503}
   - component: {fileID: 396375502}
   m_Layer: 5
-  m_Name: NeuroTag_WalkForwards
+  m_Name: NeuroTag_walkForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,7 +559,19 @@ MonoBehaviour:
   stimulationUpdateBehaviourType: 0
   onTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273378670}
+        m_TargetAssemblyTypeName: API_Controller, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: walkForward
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaintained:
     m_PersistentCalls:
       m_Calls: []
@@ -938,7 +950,7 @@ GameObject:
   - component: {fileID: 961629578}
   - component: {fileID: 961629577}
   m_Layer: 5
-  m_Name: NeuroTag_Sit
+  m_Name: NeuroTag_sit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -983,7 +995,19 @@ MonoBehaviour:
   stimulationUpdateBehaviourType: 0
   onTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273378670}
+        m_TargetAssemblyTypeName: API_Controller, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sit
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaintained:
     m_PersistentCalls:
       m_Calls: []
@@ -1196,7 +1220,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408138681
 GameObject:
@@ -1211,7 +1235,7 @@ GameObject:
   - component: {fileID: 1408138684}
   - component: {fileID: 1408138683}
   m_Layer: 5
-  m_Name: NeuroTag_Stand
+  m_Name: NeuroTag_stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,7 +1280,19 @@ MonoBehaviour:
   stimulationUpdateBehaviourType: 0
   onTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273378670}
+        m_TargetAssemblyTypeName: API_Controller, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: stand
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaintained:
     m_PersistentCalls:
       m_Calls: []
@@ -1378,7 +1414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572235735
 GameObject:
@@ -1507,7 +1543,7 @@ GameObject:
   - component: {fileID: 1823834508}
   - component: {fileID: 1823834507}
   m_Layer: 5
-  m_Name: NeuroTag_Walk
+  m_Name: NeuroTag_walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1552,7 +1588,19 @@ MonoBehaviour:
   stimulationUpdateBehaviourType: 0
   onTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273378670}
+        m_TargetAssemblyTypeName: API_Controller, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: walk
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaintained:
     m_PersistentCalls:
       m_Calls: []
