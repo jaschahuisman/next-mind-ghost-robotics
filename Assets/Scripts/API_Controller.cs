@@ -7,8 +7,8 @@ using UnityEngine.Networking;
 
 public class API_Controller : MonoBehaviour
 {
-    public string IP = "http://127.0.0.1";
-    public int PORT = 1234;
+    public string IP = "http://127.0.0.1"; // Robothond IP adres
+    public int PORT = 1234; // Robothond Port
 
     public void Trigger(string route)
     {
@@ -32,9 +32,11 @@ public class API_Controller : MonoBehaviour
         }
     }
 
+    // Coroutines om commands te sturen naar de robothond
+
     public IEnumerator Test()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(IP + ":" + PORT))
+        using (UnityWebRequest request = UnityWebRequest.Post(IP + ":" + PORT))
         {
             yield return request.SendWebRequest();
             if (request.isNetworkError) { Debug.Log(request.error); }
@@ -43,7 +45,7 @@ public class API_Controller : MonoBehaviour
 
     public IEnumerator Sit()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(IP + ":" + PORT + "/sit"))
+        using (UnityWebRequest request = UnityWebRequest.Post(IP + ":" + PORT + "/sit"))
         {
             yield return request.SendWebRequest();
             if (request.isNetworkError) { Debug.Log(request.error); }
@@ -52,7 +54,7 @@ public class API_Controller : MonoBehaviour
 
     public IEnumerator Stand()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(IP + ":" + PORT + "/stand"))
+        using (UnityWebRequest request = UnityWebRequest.Post(IP + ":" + PORT + "/stand"))
         {
             yield return request.SendWebRequest();
             if (request.isNetworkError) { Debug.Log(request.error); }
